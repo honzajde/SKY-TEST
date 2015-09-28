@@ -1,5 +1,9 @@
 <p>This is the partial for view 2.</p>
 <p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
+    <div id="result" ng-show="result == 'success'">
+        Your selection has been saved. You selected:
+        <ul>
+            <li ng-repeat="product in products"><label>{{product.name}}</label></li>
+        </ul>
+    </div>
 </p>

@@ -1,1 +1,22 @@
 <p>This is the partial for view 1.</p>
+
+<div style="margin-left: 15px;">
+    <div id="programs">
+        <div id="{{category}}" ng-repeat="category in categories">
+            <b>{{category}}</b>
+            <ul>
+                <li ng-repeat="product in products | filter: { category: category }"><label><input type="checkbox" ng-model="product.selected" />
+                    {{product.name}}</label></li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <b>Basket</b>
+        <ul id="cart">
+            <li ng-repeat="product in selectedProducts"><label><input type="checkbox" ng-model="product.selected" />
+                {{product.name}}</label></li>
+        </ul>
+
+        <button ng-click="checkout()" ng-disabled="selectedProducts.length === 0">Checkout</button>
+    </div>
+</div>
